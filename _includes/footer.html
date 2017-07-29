@@ -1,0 +1,21 @@
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright">
+      <a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a> &copy; {{ site.time | date: '%Y' }}
+    </section>
+
+    <nav class="site-footer-nav">
+      <a href="{{ "/" | relative_url }}">Latest Posts</a>
+
+      {% if site.twitter_username %}
+        <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">Twitter</a>
+      {% endif %}
+
+      {% if site.github_username %}
+        <a href="https://github.com/{{ site.github_username }}" target="_blank">Github</a>
+      {% endif %}
+
+       <a href="https://jekyllrb.com" target="_blank">Jekyll</a>
+    </nav>
+  </div>
+</footer>

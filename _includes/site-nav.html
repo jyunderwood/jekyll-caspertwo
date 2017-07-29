@@ -1,0 +1,34 @@
+<nav class="site-nav">
+  <div class="site-nav-left">
+    {% if page.class_name != 'home-template' %}
+      {% if site.logo %}
+        <a class="site-nav-logo" href="{{ "/" | relative_url }}"><img src="{{ site.logo }}" alt="{{ site.title }}" /></a>
+      {% else %}
+        <a class="site-nav-logo" href="{{ "/" | relative_url }}">{{ site.title }}</a>
+      {% endif %}
+    {% endif %}
+
+    <ul class="nav">
+      <!-- TODO: add data navigation  -->
+      <li class="nav-home" role="presentation"><a href="{{ "/" | relative_url }}">Home</a></li>
+    </ul>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="social-links">
+      {% if site.twitter_username %}
+        <a class="social-link social-link-tw" href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+          {% include icons/twitter.html %}
+        </a>
+      {% endif %}
+
+      {% if site.github_username %}
+        <a class="social-link social-link-fb" href="https://github.com/{{ site.github_username }}" target="_blank">
+          {% include icons/github.html %}
+        </a>
+      {% endif %}
+    </div>
+
+    <a class="rss-button" href="{{ "/feed.xml" | relative_url }}" target="_blank">{% include icons/rss.html %}</a>
+  </div>
+</nav>

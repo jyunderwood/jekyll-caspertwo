@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<header class="site-header outer">
+  <div class="inner">
+    {% include site-nav.html %}
+  </div>
+</header>
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    <article class="post-full post page{% unless page.feature_image %} no-image{% endunless %}">
+      <header class="post-full-header">
+          <h1 class="post-full-title">{{ page.title }}</h1>
+      </header>
+
+      {% if page.feature_image %}
+        <figure class="post-full-image" style="background-image: url({{ page.feature_image }})"></figure>
+      {% endif %}
+
+      <section class="post-full-content">
+        <div class="kg-card-markdown">
+          {{ content }}
+        </div>
+      </section>
+    </article>
+  </div>
+</main>

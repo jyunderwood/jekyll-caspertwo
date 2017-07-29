@@ -1,0 +1,42 @@
+title: Awesome Blog
+subtitle: Thoughts, stories and ideas.
+cover_image: https://casper.ghost.org/v1.0.0/images/blog-cover.jpg
+
+author:
+  profile_image:
+  url: "/"
+  name: GitHub User
+  bio: I use jekyll for blogging
+
+email: your-email@domain.com
+
+description: > # this means to ignore newlines until the next setting
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+
+twitter_username: jekyllrb
+github_username:  jekyll
+
+permalink: /:year/:month/:title/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      class_name: "post-template"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      class_name: "page-template"
+
+# Build settings
+markdown: kramdown
+theme: caspertwo
+exclude:
+  - Gemfile
+  - Gemfile.lock

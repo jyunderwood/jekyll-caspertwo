@@ -1,0 +1,15 @@
+<aside class="read-next outer">
+  <div class="inner">
+    <div class="read-next-feed">
+      {% if page.next %}
+        {% assign post = page.next %}
+        {% include post-card.html %}
+      {% endif %}
+
+      {% if page.previous %}
+        {% assign post = page.previous %}
+        {% include post-card.html %}
+      {% endif %}
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,38 @@
+<div class="floating-header">
+  <div class="floating-header-logo">
+    <a href="{{ "/" | relative_url }}">
+      {% if site.icon %}
+        <img src="{{ site.icon }}" alt="{{ site.title }} icon" />
+      {% endif %}
+
+      <span>{{ site.title }}</span>
+    </a>
+  </div>
+
+  <span class="floating-header-divider">&mdash;</span>
+  <div class="floating-header-title">{{ page.title }}</div>
+
+  <div class="floating-header-share">
+    <div class="floating-header-share-label">
+      Share this {% include icons/point.html %}
+    </div>
+
+    <a class="floating-header-share-tw"
+       href="https://twitter.com/share?text={{ page.title | uri_escape }}&amp;url={{ page.url | replace:'index.html','' | absolute_url }}"
+       onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+        {% include icons/twitter.html %}
+    </a>
+
+    <a class="floating-header-share-fb"
+       href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:'index.html','' | absolute_url }}"
+       onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+        {% include icons/facebook.html %}
+    </a>
+  </div>
+
+  <progress class="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+</div>
