@@ -1,5 +1,7 @@
 # caspertwo
 
+[![Build Status](https://travis-ci.org/jyunderwood/jekyll-caspertwo.svg?branch=master)](https://travis-ci.org/jyunderwood/jekyll-caspertwo)
+
 A port of Casper 2.0 to Jekyll. Just porting templates, the CSS hasn't been changed.
 
 What's currently missing:
@@ -10,7 +12,7 @@ What's currently missing:
 - error page
 - additional links in site-nav
 
-![caspertwo theme preview](/screenshot.png)
+![caspertwo theme preview](/screenshot.jpg)
 
 ## Installation
 
