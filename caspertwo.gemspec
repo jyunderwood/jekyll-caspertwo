@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name     = 'caspertwo'
-  spec.version  = '2.0.1.0'
+  spec.version  = '2.1.0.0'
   spec.authors  = ['Jonathan Underwood']
   spec.email    = ['jonathan@jyunderwood.com']
 
