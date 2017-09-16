@@ -1,0 +1,13 @@
+# main links
+main:
+  - title: Home
+    url: /
+
+  - title: About
+    url: /about/
+
+  # - title: Ultimate Conference Guide
+  #   url: /guide/
+
+  # - title: Community
+  #   url: https://community.some-domain.org
