@@ -18,7 +18,10 @@ layout: default
           </time>
 
           {% unless page.tags.count.zero? %}
-            <span class="date-divider">/</span> {{ page.tags.first }}
+            <span class="date-divider">/</span>
+              {% assign tag = page.tags.first %}
+              {% comment %} TODO: do not hard-code path 'tag/' {% endcomment %}
+             <a href="{{ tag | slugify | prepend: 'tag/' | absolute_url  }}">{{ tag }}</a>
           {% endunless %}
         </section>
 
