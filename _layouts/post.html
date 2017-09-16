@@ -39,22 +39,37 @@ layout: default
       </section>
 
       <footer class="post-full-footer">
-        <section class="author-card">
-          {% if site.author.profile_image %}
-            <img class="author-profile-image" src="{{ site.author.profile_image }}" alt="{{ site.author.name }}" />
-          {% endif %}
+        {% assign found_authors = site.authors | where: 'title', page.author | size %}
+        {% if found_authors > 0 %}
+          {% assign author = site.authors | where: 'title', page.author | first %}
+        {% else %}
+          {% assign author = site.author %}
+        {% endif %}
 
-          <section class="author-card-content">
-            <h4 class="author-card-name"><a href="{{ site.author.url }}">{{ site.author.name }}</a></h4>
-
-            {% if site.author.bio %}
-              <p>{{site.author.bio}}</p>
+        <div itemscope itemtype="http://schema.org/Person">
+          <section class="author-card">
+            {% if author.avatar %}
+              {% if author.avatar contains "://" %}
+                <img class="author-profile-image" src="{{ author.avatar }}" alt="{{ author.title }}" itemprop="image">
+              {% else %}
+                <img class="author-profile-image" src="{{ author.avatar | absolute_url }}" alt="{{ author.title }}" itemprop="image">
+              {% endif %}
+            {% else %}
+              <img class="author-profile-image" src="{{ author.email | default: "" | to_gravatar }}?d=mm&s=60" alt="{{ author.title }}" itemprop="image">
             {% endif %}
+
+            <section class="author-card-content">
+              <h4 class="author-card-name"><a href="{{ author.url }}" itemprop="url">{{ site.author.title }}</a></h4>
+
+              {% if site.author.bio %}
+                <p itemprop="description">{{author.bio}}</p>
+              {% endif %}
+            </section>
           </section>
-        </section>
+        </div>
 
         <div class="post-full-footer-right">
-          <a class="author-card-button" href="{{ "/" | relative_url }}">Read More</a>
+          <a class="author-card-button" href="{{ author.title | slugify | prepend: "/author/" | absolute_url }}">Read More</a>
         </div>
       </footer>
     </article>
