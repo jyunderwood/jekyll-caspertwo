@@ -19,7 +19,7 @@
     {% endif %}
   </head>
 
-  <body class="{% if page.class_name %}{{ page.class_name }}{% else %}home-template{% endif %}">
+  <body class="{% if page.class_name %}{{ page.class_name }}{% elsif layout.class_name %}{{ layout.class_name }}{% else %}home-template{% endif %}">
     <div class="site-wrapper">
       {{ content }}
 
