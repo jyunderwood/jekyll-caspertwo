@@ -20,11 +20,26 @@
       </section>
     </a>
 
+    {% assign found_authors = site.authors | where: 'title', post.author | size %}
+    {% if 0 < found_authors %}
+      {% assign author = site.authors | where: 'title', post.author | first %}
+    {% else %}
+      {% assign author = site.author %}
+    {% endif %}
+
     <footer class="post-card-meta">
-      {% if site.author.profile_image %}
-        <img class="author-profile-image" src="{{author.profile_image}}" alt="{{site.author.name}}" />
+      {% if author.avatar %}
+        {% if author.avatar contains "://" %}
+          <img class="author-profile-image" src="{{ author.avatar }}" alt="{{ author.title }}" itemprop="image">
+        {% else %}
+          <img class="author-profile-image" src="{{ author.avatar | absolute_url }}" alt="{{ author.title }}" itemprop="image">
+        {% endif %}
+      {% else %}
+        <img class="author-profile-image" src="{{ author.email | default: "" | to_gravatar }}?d=mm&s=25" alt="{{ author.title }}" itemprop="image">
       {% endif %}
-      <span class="post-card-author">{{ site.author.name }}</span>
+      <span class="post-card-author">
+        <a href="{{ author.url | relative_url }}">{{ author.title }}</a>
+      </span>
     </footer>
   </div>
 </article>
